@@ -19,7 +19,7 @@ public class RNSensorsPackage implements ReactPackage {
         new RNSensor(reactContext, "Accelerometer", Sensor.TYPE_ACCELEROMETER),
         new RNSensor(reactContext, "Magnetometer", Sensor.TYPE_MAGNETIC_FIELD),
         new RNSensor(reactContext, "Barometer", Sensor.TYPE_PRESSURE),
-        new RNSensor(reactContext, "OrientationE", Sensor.TYPE_ROTATION_VECTOR)
+        new RNSensor(reactContext, "OrientationI", Sensor.TYPE_ROTATION_VECTOR)
       );
     }
 
