@@ -28,7 +28,7 @@ public class RNSensor extends ReactContextBaseJavaModule implements SensorEventL
   private String sensorName;
   private int sensorType;
   private float[] rotation = new float[9];
-  private float[] orientation = new float[3];
+  private float[] orientationE = new float[3];
   private float[] quaternion = new float[4];
 
   public RNSensor(ReactApplicationContext reactContext, String sensorName, int sensorType) {
@@ -121,16 +121,16 @@ public class RNSensor extends ReactContextBaseJavaModule implements SensorEventL
         case Sensor.TYPE_ROTATION_VECTOR:
           SensorManager.getQuaternionFromVector(quaternion, sensorEvent.values);
           SensorManager.getRotationMatrixFromVector(rotation, sensorEvent.values);
-          SensorManager.getOrientation(rotation, orientation);
+          SensorManager.getOrientationE(rotation, orientationE);
 
           map.putDouble("qw", quaternion[0]);
           map.putDouble("qx", quaternion[1]);
           map.putDouble("qy", quaternion[2]);
           map.putDouble("qz", quaternion[3]);
 
-          map.putDouble("yaw", orientation[0]);
-          map.putDouble("pitch", orientation[1]);
-          map.putDouble("roll", orientation[2]);
+          map.putDouble("yaw", orientationE[0]);
+          map.putDouble("pitch", orientationE[1]);
+          map.putDouble("roll", orientationE[2]);
           break;
 
         default:

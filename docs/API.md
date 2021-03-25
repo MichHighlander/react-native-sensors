@@ -45,12 +45,12 @@ const subscription = barometer.subscribe(({ pressure }) => console.log({ pressur
 
 Please note that this sensor has no option to set the update rate.
 
-## orientation: Observable<{qx: number, qy: number, qz: number, qw: number, pitch: number, roll: number, yaw: number, timestamp: string}>
+## orientationE: Observable<{qx: number, qy: number, qz: number, qw: number, pitch: number, roll: number, yaw: number, timestamp: string}>
 
 ```js
-import { orientation } from "react-native-sensors";
+import { orientationE } from "react-native-sensors";
 
-const subscription = orientation.subscribe(({ qx, qy, qz, qw, pitch, roll, yaw, timestamp }) =>
+const subscription = orientationE.subscribe(({ qx, qy, qz, qw, pitch, roll, yaw, timestamp }) =>
   console.log({ qx, qy, qz, qw, pitch, roll, yaw, timestamp })
 );
 ```

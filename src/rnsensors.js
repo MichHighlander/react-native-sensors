@@ -4,7 +4,7 @@ const {
   Accelerometer: AccNative,
   Magnetometer: MagnNative,
   Barometer: BarNative,
-  // Orientation: OrientNative,
+  OrientationE: OrientNative,
 } = NativeModules;
 
 if (!GyroNative && !AccNative && !MagnNative && !BarNative && !OrientNative) {
@@ -16,7 +16,7 @@ const nativeApis = new Map([
   ["gyroscope", GyroNative],
   ["magnetometer", MagnNative],
   ["barometer", BarNative],
-  // ["orientation", OrientNative],
+  ["orientationE", OrientNative],
 ]);
 
 // Cache the availability of sensors

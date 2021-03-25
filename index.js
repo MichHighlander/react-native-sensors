@@ -6,8 +6,8 @@ export const SensorTypes = {
   gyroscope: "gyroscope",
   magnetometer: "magnetometer",
   barometer: "barometer",
-  orientation: "orientation",
+  orientationE: "orientationE",
 };
 
-export const { accelerometer, gyroscope, magnetometer, barometer, orientation } = sensors;
+export const { accelerometer, gyroscope, magnetometer, barometer, orientationE } = sensors;
 export default sensors;
