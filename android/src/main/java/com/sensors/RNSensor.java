@@ -121,7 +121,7 @@ public class RNSensor extends ReactContextBaseJavaModule implements SensorEventL
         case Sensor.TYPE_ROTATION_VECTOR:
           SensorManager.getQuaternionFromVector(quaternion, sensorEvent.values);
           SensorManager.getRotationMatrixFromVector(rotation, sensorEvent.values);
-          SensorManager.getOrientationE(rotation, orientationE);
+          SensorManager.getOrientation(rotation, orientationE);
 
           map.putDouble("qw", quaternion[0]);
           map.putDouble("qx", quaternion[1]);
