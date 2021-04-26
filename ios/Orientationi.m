@@ -4,10 +4,10 @@
 
 #import <React/RCTBridge.h>
 #import <React/RCTEventDispatcher.h>
-#import "Orientation.h"
+#import "Orientationi.h"
 #import "Utils.h"
 
-@implementation Orientation
+@implementation Orientationi
 
 @synthesize bridge = _bridge;
 
@@ -15,7 +15,7 @@ RCT_EXPORT_MODULE();
 
 - (id) init {
     self = [super init];
-    NSLog(@"Orientation");
+    NSLog(@"Orientationi");
 
     if (self) {
         self->_motionManager = [[CMMotionManager alloc] init];
@@ -26,7 +26,7 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-  return @[@"Orientation"];
+  return @[@"Orientationi"];
 }
 
 + (BOOL)requiresMainQueueSetup
@@ -50,12 +50,12 @@ RCT_REMAP_METHOD(isAvailable,
         {
             resolve(@YES);
         } else {
-            reject(@"-1", @"Orientation is not active", nil);
+            reject(@"-1", @"Orientationi is not active", nil);
         }
     }
     else
     {
-        reject(@"-1", @"Orientation is not available", nil);
+        reject(@"-1", @"Orientationi is not available", nil);
     }
 }
 
@@ -89,7 +89,7 @@ RCT_EXPORT_METHOD(getUpdateInterval:(RCTResponseSenderBlock) cb) {
 
 RCT_EXPORT_METHOD(getData:(RCTResponseSenderBlock) cb) {
     CMAttitude *attitude = self->_motionManager.deviceMotion.attitude;
-    
+
     double qx = attitude.quaternion.x;
     double qy = attitude.quaternion.y;
     double qz = attitude.quaternion.z;
@@ -121,7 +121,7 @@ RCT_EXPORT_METHOD(getData:(RCTResponseSenderBlock) cb) {
 
 RCT_EXPORT_METHOD(startUpdates) {
     if (self->logLevel > 0) {
-        NSLog(@"startUpdates/startOrientationUpdates");
+        NSLog(@"startUpdates/startOrientationiUpdates");
     }
 
     [self->_motionManager setShowsDeviceMovementDisplay:YES];
@@ -132,7 +132,7 @@ RCT_EXPORT_METHOD(startUpdates) {
                                                withHandler:^(CMDeviceMotion *deviceMotion, NSError *error)
      {
          CMAttitude *attitude = deviceMotion.attitude;
-         
+
          double qx = attitude.quaternion.x;
          double qy = attitude.quaternion.y;
          double qz = attitude.quaternion.z;
@@ -149,7 +149,7 @@ RCT_EXPORT_METHOD(startUpdates) {
              NSLog(@"Updated device motion quaternion: %f, %f, %f, %f %f", qx, qy, qz, qw, timestamp);
          }
 
-         [self sendEventWithName:@"Orientation" body:@{
+         [self sendEventWithName:@"Orientationi" body:@{
                                                            @"pitch" : [NSNumber numberWithDouble:pitch],
                                                            @"roll" : [NSNumber numberWithDouble:roll],
                                                            @"yaw" : [NSNumber numberWithDouble:yaw],
