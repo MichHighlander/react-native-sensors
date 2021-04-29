@@ -4,10 +4,10 @@
 
 #import <React/RCTBridge.h>
 #import <React/RCTEventDispatcher.h>
-#import "Orientationi.h"
+#import "OrientationI.h"
 #import "Utils.h"
 
-@implementation Orientationi
+@implementation OrientationI
 
 @synthesize bridge = _bridge;
 
@@ -15,7 +15,7 @@ RCT_EXPORT_MODULE();
 
 - (id) init {
     self = [super init];
-    NSLog(@"Orientationi");
+    NSLog(@"OrientationI");
 
     if (self) {
         self->_motionManager = [[CMMotionManager alloc] init];
@@ -26,7 +26,7 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-  return @[@"Orientationi"];
+  return @[@"OrientationI"];
 }
 
 + (BOOL)requiresMainQueueSetup
@@ -50,12 +50,12 @@ RCT_REMAP_METHOD(isAvailable,
         {
             resolve(@YES);
         } else {
-            reject(@"-1", @"Orientationi is not active", nil);
+            reject(@"-1", @"OrientationI is not active", nil);
         }
     }
     else
     {
-        reject(@"-1", @"Orientationi is not available", nil);
+        reject(@"-1", @"OrientationI is not available", nil);
     }
 }
 
@@ -121,7 +121,7 @@ RCT_EXPORT_METHOD(getData:(RCTResponseSenderBlock) cb) {
 
 RCT_EXPORT_METHOD(startUpdates) {
     if (self->logLevel > 0) {
-        NSLog(@"startUpdates/startOrientationiUpdates");
+        NSLog(@"startUpdates/startOrientationIUpdates");
     }
 
     [self->_motionManager setShowsDeviceMovementDisplay:YES];
@@ -149,7 +149,7 @@ RCT_EXPORT_METHOD(startUpdates) {
              NSLog(@"Updated device motion quaternion: %f, %f, %f, %f %f", qx, qy, qz, qw, timestamp);
          }
 
-         [self sendEventWithName:@"Orientationi" body:@{
+         [self sendEventWithName:@"OrientationI" body:@{
                                                            @"pitch" : [NSNumber numberWithDouble:pitch],
                                                            @"roll" : [NSNumber numberWithDouble:roll],
                                                            @"yaw" : [NSNumber numberWithDouble:yaw],
