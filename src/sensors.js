@@ -71,7 +71,7 @@ function createSensorObservable(sensorType) {
   }).pipe(makeSingleton());
 }
 
-// As we only have one sensor we need to share it between the different consumers
+// As we only have one sensor we need to share it between the different consumerss
 function makeSingleton() {
   return (source) => source.pipe(publish(), refCount());
 }
